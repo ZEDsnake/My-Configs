@@ -1,0 +1,21 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ZEDsnake/My-Configs.git
+          search-paths: configs
+          username: ${GIT_USERNAME}
+          password: ${GIT_TOKEN} 
+  encrypt:
+    key: my-strong-secret-key-12345
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
