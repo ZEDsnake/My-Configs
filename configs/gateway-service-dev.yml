@@ -4,19 +4,19 @@ spring:
 
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
       routes:
         - id: company-service
-          uri: http://localhost:8081
+          uri: lb://company-service
           predicates:
             - Path=/api/companies/**
 
         - id: user-service
-          uri: http://localhost:8082
+          uri: lb://user-service
           predicates:
             - Path=/api/users/**
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
 
