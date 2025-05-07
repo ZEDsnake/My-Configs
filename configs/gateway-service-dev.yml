@@ -19,4 +19,12 @@ spring:
           predicates:
             - Path=/api/users/**
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      enabled: true
 
